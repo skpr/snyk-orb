@@ -1,0 +1,19 @@
+description: >
+  Scan a file using Snyk
+
+parameters:
+  manifest-file:
+    default: "skpr-manifest.json"
+    description: "File name containing image manifests."
+    type: string
+  org:
+    type: string
+    description: "The org reference in your Snyk account"
+
+steps:
+  - run:
+      environment:
+        PARAM_MANIFEST: <<parameters.manifest-file>>
+        PARAM_ORG: <<parameters.org>>
+      name: "Snyk: Scan Images"
+      command: <<include(scripts/snyk_image_scan.sh)>>

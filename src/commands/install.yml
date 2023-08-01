@@ -1,0 +1,23 @@
+description: >
+  Installs the Snyk binary
+
+parameters:
+  org:
+    type: string
+    description: "The org reference in your Snyk account"
+  token-variable:
+    type: string
+    description: ff
+    default: SNYK_TOKEN
+
+steps:
+  - run:
+      name: "Snyk: Install"
+      command: |
+        curl --compressed https://static.snyk.io/cli/latest/snyk-linux -o snyk
+        chmod +x ./snyk
+        sudo mv ./snyk /usr/local/bin/
+  - run:
+      name: "Snyk: Authenticate"
+      command: |
+        snyk auth <<#parameters.token-variable>>$<< parameters.token-variable >><</parameters.token-variable>>

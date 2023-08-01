@@ -1,0 +1,16 @@
+description: >
+  Scan a file using Snyk
+
+parameters:
+  file:
+    description: "The dependency file to scan."
+    type: string
+  org:
+    type: string
+    description: "The org reference in your Snyk account"
+
+steps:
+  - run:
+      name: "Snyk: Scan file"
+      command: |
+        snyk test <<#parameters.file>>--file=<< parameters.file >><</parameters.file>> <<#parameters.org>>--org=<< parameters.org >><</parameters.org>>
