@@ -1,4 +1,4 @@
-# Skpr CircleCI Orb
+# Snyk CircleCI Orb
 
 ## Resources
 [CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/skpr/snyk) - The official registry page of this orb for all versions, executors, commands, and jobs described.
