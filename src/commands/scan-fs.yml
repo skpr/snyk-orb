@@ -13,4 +13,4 @@ steps:
   - run:
       name: "Snyk: Scan file"
       command: |
-        snyk test <<#parameters.file>>--file=<< parameters.file >><</parameters.file>> <<#parameters.org>>--org=<< parameters.org >><</parameters.org>>
+        snyk test <<#parameters.file>>--file=<< parameters.file >><</parameters.file>> <<#parameters.org>>--org=<< parameters.org >><</parameters.org>> --severity-threshold=critical

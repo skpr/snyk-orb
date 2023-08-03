@@ -23,8 +23,8 @@ steps:
   - run:
       name: "Snyk: Set Endpoint"
       command: |        
-        snyk config set <<#parameters.endpoint>>endpoint=https://app.au.snyk.io/api<< parameters.endpoint >><</parameters.endpoint>>
+        snyk config set <<#parameters.endpoint>>endpoint=<< parameters.endpoint >><</parameters.endpoint>>
   - run:
       name: "Snyk: Authenticate"
       command: |
-        snyk auth <<#parameters.token-variable>>$<< parameters.token-variable >><</parameters.token-variable>>
+        snyk auth <<#parameters.token-variable>>$<< parameters.token-variable >><</parameters.token-variable>> <<#parameters.org>>--org=<< parameters.org >><</parameters.org>>

@@ -6,9 +6,6 @@ parameters:
     default: "skpr-manifest.json"
     description: "File name containing image manifests."
     type: string
-  org:
-    type: string
-    description: "The org reference in your Snyk account"
 
 steps:
   - run:

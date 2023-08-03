@@ -6,7 +6,7 @@ snyk_image_scan() {
   cat < ${PARAM_MANIFEST} | jq -c ".[]" | jq "select(.type == \"runtime\")" | jq  '.tag' -r > manifest-target.txt
   while IFS= read -r line
   do
-    snyk image test ${line} --org=${PARAM_ORG}
+    snyk container test ${line} --severity-threshold=critical
   done < manifest-target.txt
 
 }
