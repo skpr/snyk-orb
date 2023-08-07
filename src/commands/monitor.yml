@@ -1,13 +1,8 @@
 description: >
   Pushes information out to Snyk
 
-parameters:
-  org:
-    type: string
-    description: "The org reference in your Snyk account"
-
 steps:
   - run:
       name: "Snyk: Monitor"
       command: |
-        snyk monitor --all-projects <<#parameters.org>>--org=<< parameters.org >><</parameters.org>>
+        snyk monitor --all-projects
