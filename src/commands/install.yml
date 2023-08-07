@@ -22,7 +22,7 @@ steps:
         sudo mv ./snyk /usr/local/bin/
   - run:
       name: "Snyk: Set Endpoint"
-      command: |        
+      command: |
         snyk config set <<#parameters.endpoint>>endpoint=<< parameters.endpoint >><</parameters.endpoint>>
   - run:
       name: "Snyk: Authenticate"
