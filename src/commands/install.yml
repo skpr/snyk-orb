@@ -1,0 +1,30 @@
+description: >
+  Installs the Snyk binary
+
+parameters:
+  endpoint:
+    type: string
+    description: "The endpoint for your Snyk account"
+  org:
+    type: string
+    description: "The org reference in your Snyk account"
+  token-variable:
+    type: string
+    description: "The environment variable that refers to the token value"
+    default: SNYK_TOKEN
+
+steps:
+  - run:
+      name: "Snyk: Install"
+      command: |
+        curl --compressed https://static.snyk.io/cli/latest/snyk-linux -o snyk
+        chmod +x ./snyk
+        sudo mv ./snyk /usr/local/bin/
+  - run:
+      name: "Snyk: Set Endpoint"
+      command: |        
+        snyk config set <<#parameters.endpoint>>endpoint=<< parameters.endpoint >><</parameters.endpoint>>
+  - run:
+      name: "Snyk: Authenticate"
+      command: |
+        snyk auth <<#parameters.token-variable>>$<< parameters.token-variable >><</parameters.token-variable>> <<#parameters.org>>--org=<< parameters.org >><</parameters.org>>

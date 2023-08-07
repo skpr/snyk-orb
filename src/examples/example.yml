@@ -1,0 +1,17 @@
+description: >
+  Example usage
+# Provide a use-case based example for using this orb.
+# Everything in the `usage` section will be displayed in the orb registry.
+# Comments are not retained.
+usage:
+  version: 2.1
+  orbs:
+    snyk: skpr/snyk@1.2.3
+  workflows:
+    use-my-orb:
+      jobs:
+        - snyk/install:
+            org: "${SNYK_ORG}"
+        - snyk/scan-fs:
+            org: "${SNYK_ORG}"
+            file: /home/circleci/project/composer.lock
