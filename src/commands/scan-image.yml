@@ -11,6 +11,5 @@ steps:
   - run:
       environment:
         PARAM_MANIFEST: <<parameters.manifest-file>>
-        PARAM_ORG: <<parameters.org>>
       name: "Snyk: Scan Images"
       command: <<include(scripts/snyk_image_scan.sh)>>
