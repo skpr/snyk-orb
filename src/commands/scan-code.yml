@@ -1,0 +1,8 @@
+description: >
+  Scan code using Snyk
+
+steps:
+  - run:
+      name: "Snyk: Scan code"
+      command: |
+        snyk code test
